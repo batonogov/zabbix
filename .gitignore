@@ -1,2 +1,6 @@
 
 start.sh
+.DS_Store
+backup.sh
+restore.sh
+backup.sql
