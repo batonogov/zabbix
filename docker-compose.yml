@@ -1,5 +1,6 @@
 version: '3.8'
 services:
+  # Запуск пустого экземпляр MySQL сервера
   mysql-server:
     image: mysql:8.0
     container_name: mysql-server
@@ -11,11 +12,13 @@ services:
     restart: unless-stopped:0
     command: --character-set-server=utf8 --collation-server=utf8_bin --default-authentication-plugin=mysql_native_password
 
+  # Запуск экземпляра Zabbix Java gateway
   zabbix-java-gateway:
     image: zabbix/zabbix-java-gateway:latest
     container_name: zabbix-java-gateway
     restart: unless-stopped:0
 
+  # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MySQL сервера
   zabbix-server-mysql:
     image: zabbix/zabbix-server-mysql:latest
     container_name: zabbix-server-mysql
@@ -33,6 +36,7 @@ services:
       - 10051:10051
     restart: unless-stopped:0
 
+  # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MySQL сервера и Zabbix сервера
   zabbix-web-nginx-mysql:
     image: zabbix/zabbix-web-nginx-mysql:latest
     container_name: zabbix-web-nginx-mysql
