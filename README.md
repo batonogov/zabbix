@@ -1,6 +1,6 @@
 # Zabbix
 
-Запуск Zabbix сервера с поддержкой MySQL базы данных, Zabbix веб-интерфейсом на основе Nginx веб-сервера и Zabbix Java gateway.
+Запуск Zabbix 5.0 сервера с поддержкой MySQL 8.0 базы данных, Zabbix веб-интерфейсом на основе Nginx веб-сервера и Zabbix Java gateway.
 
 **Запуск:**
 ```
