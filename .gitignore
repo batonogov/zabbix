@@ -4,3 +4,4 @@ start.sh
 backup.sh
 restore.sh
 backup.sql
+upgrade.sh
