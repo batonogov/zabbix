@@ -52,13 +52,3 @@ services:
     ports:
       - 32775:8080
     restart: unless-stopped:0
-
-  # docker:
-  #   image: docker:19
-  #   container_name: docker
-  #   links:
-  #     - mysql-server
-  #     - zabbix-java-gateway
-  #     - zabbix-server-mysql
-  #     - zabbix-web-nginx-mysql
-  #   restart: unless-stopped:0
