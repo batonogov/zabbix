@@ -1,0 +1,4 @@
+@hourly run-parts /etc/cron.hourly
+@daily run-parts /etc/cron.daily
+@weekly run-parts /etc/cron.weekly
+@monthly run-parts /etc/cron.monthly
