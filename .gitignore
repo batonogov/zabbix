@@ -1,8 +1,6 @@
 start.sh
 .DS_Store
-backup.sql
-zabbix.sql
 /mibs
 /alertscripts
-/bsckup
+/backup
 zabbix-backup-2020-07-17.tar.bzip2
