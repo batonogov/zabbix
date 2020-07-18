@@ -6,5 +6,3 @@ zabbix.sql
 /alertscripts
 /bsckup
 zabbix-backup-2020-07-17.tar.bzip2
-restore.sh
-backup.sh
