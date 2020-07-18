@@ -7,10 +7,5 @@
 docker-compose up -d
 ```
 
-При запуске будут созданы папки: backup, mibs и alertscripts.
-
-**Резервное копирование и восстановление базы данных:**
-```
-bash backup.sh
-bash restore.sh
-```
+При запуске создаются папки: cron.daily, cron.hourly, cron.monthly cron.weekly, backup, mibs и alertscripts.  
+В дополнении будет создан контейнер zabbix-backup, который обрабатывает задачи cron из папок.
