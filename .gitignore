@@ -1,3 +1,5 @@
 start.sh
 .DS_Store
 backup/
+restore.sh
+backup.sh
