@@ -1,5 +1,3 @@
 start.sh
 .DS_Store
-/mibs
-/alertscripts
-/backup
+backup/
