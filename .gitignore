@@ -1,4 +1,10 @@
 start.sh
 .DS_Store
-backup/
 temp.sh
+backup/
+alertscripts/
+mibs/
+cron.daily/
+cron.hourly/
+cron.monthly/
+cron.weekly/
