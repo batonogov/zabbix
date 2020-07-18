@@ -8,3 +8,4 @@ cron.daily/
 cron.hourly/
 cron.monthly/
 cron.weekly/
+logs/
