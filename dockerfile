@@ -8,9 +8,8 @@ RUN apt update && \
     apt clean 
 
 COPY entrypoint.sh /
-COPY cron /tmp
+COPY scheduler /
 
-RUN chmod +x /entrypoint.sh && \
-    crontab /tmp/cron
+RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT /entrypoint.sh
