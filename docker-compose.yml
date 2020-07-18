@@ -5,10 +5,12 @@ services:
     image: mysql:8.0
     container_name: mysql-server
     environment:
-      MYSQL_DATABASE: zabbix
-      MYSQL_USER: zabbix
-      MYSQL_PASSWORD: zabbix_pwd
-      MYSQL_ROOT_PASSWORD: root_pwd
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./backup:/backup
     restart: unless-stopped:0
     command: --character-set-server=utf8 --collation-server=utf8_bin --default-authentication-plugin=mysql_native_password
 
@@ -23,12 +25,15 @@ services:
     image: zabbix/zabbix-server-mysql:alpine-5.0-latest
     container_name: zabbix-server-mysql
     environment:
-      DB_SERVER_HOST: mysql-server
-      MYSQL_DATABASE: zabbix
-      MYSQL_USER: zabbix
-      MYSQL_PASSWORD: zabbix_pwd
-      MYSQL_ROOT_PASSWORD: root_pwd
-      ZBX_JAVAGATEWAY: zabbix-java-gateway
+      DB_SERVER_HOST: ${DB_SERVER_HOST}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      ZBX_JAVAGATEWAY: ${ZBX_JAVAGATEWAY}
+    volumes:
+      - ./mibs:/var/lib/zabbix/mibs
+      - ./alertscripts:/usr/lib/zabbix/alertscripts
     links:
       - mysql-server:mysql
       - zabbix-java-gateway:zabbix-java-gateway
@@ -41,11 +46,11 @@ services:
     image: zabbix/zabbix-web-nginx-mysql:alpine-5.0-latest
     container_name: zabbix-web-nginx-mysql
     environment:
-      DB_SERVER_HOST: mysql-server
-      MYSQL_DATABASE: zabbix
-      MYSQL_USER: zabbix
-      MYSQL_PASSWORD: zabbix_pwd
-      MYSQL_ROOT_PASSWORD: root_pwd
+      DB_SERVER_HOST: ${DB_SERVER_HOST}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     links:
       - mysql-server:mysql
       - zabbix-server-mysql:zabbix-server
