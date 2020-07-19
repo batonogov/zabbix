@@ -1,7 +1,6 @@
 SHELL=/bin/bash
 BASH_ENV=/container.env
 
-* * * * * bash /etc/cron.hourly/* >> /var/log/cron/test.log 2>&1
 @hourly bash /etc/cron.hourly/* >> /var/log/cron/hourly.log 2>&1
 @daily bash /etc/cron.daily/* >> /var/log/cron/daily.log 2>&1
 @weekly bash /etc/cron.weekly/* >> /var/log/cron/weekly.log 2>&1
