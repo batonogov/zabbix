@@ -3,7 +3,7 @@ BASH_ENV=/container.env
 MAILTO=root
 HOME=/
 
-@hourly bash hourly
-@daily bash daily
-@weekly bash weekly
-@monthly bash monthly
+@hourly bash hourly.sh
+@daily bash daily.sh
+@weekly bash weekly.sh
+@monthly bash monthly.sh
