@@ -13,7 +13,6 @@ RUN apt update && \
 
 COPY entrypoint.sh /
 COPY scheduler /
-COPY minutes.sh /
 COPY hourly.sh /
 COPY daily.sh /
 COPY weekly.sh /
