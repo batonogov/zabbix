@@ -1,7 +1,7 @@
 SHELL=/bin/bash
 BASH_ENV=/container.env
 
-@hourly for file in /etc/cron.hourly/*;do echo "$file" >> /var/log/cron/hourly.log && bash "$file" >> /var/log/cron/hourly.log 2>&1;done 
-@daily for file in /etc/cron.daily/*;do echo "$file" >> /var/log/cron/daily.log && bash "$file" >> /var/log/cron/daily.log 2>&1;done
-@weekly for file in /etc/cron.weekly/*;do echo "$file" >> /var/log/cron/weekly.log && bash "$file" >> /var/log/cron/weekly.log 2>&1;done
-@monthly for file in /etc/cron.monthly/*;do echo "$file" >> /var/log/cron/monthly.log && bash "$file" >> /var/log/cron/monthly.log 2>&1;done
+@hourly for file in /etc/cron.hourly/*;do echo "$file" >> /var/log/cron/hourly-$(date +"%Y-%m-%d").log && bash "$file" >> /var/log/cron/hourly-$(date +"%Y-%m-%d").log 2>&1;done 
+@daily for file in /etc/cron.daily/*;do echo "$file" >> /var/log/cron/daily-$(date +"%Y-%m-%d").log && bash "$file" >> /var/log/cron/daily-$(date +"%Y-%m-%d").log 2>&1;done
+@weekly for file in /etc/cron.weekly/*;do echo "$file" >> /var/log/cron/weekly-$(date +"%Y-%m-%d").log && bash "$file" >> /var/log/cron/weekly-$(date +"%Y-%m-%d").log 2>&1;done
+@monthly for file in /etc/cron.monthly/*;do echo "$file" >> /var/log/cron/monthly-$(date +"%Y-%m-%d").log && bash "$file" >> /var/log/cron/monthly-$(date +"%Y-%m-%d").log 2>&1;done
