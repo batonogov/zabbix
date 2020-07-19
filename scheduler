@@ -1,7 +1,9 @@
 SHELL=/bin/bash
 BASH_ENV=/container.env
+MAILTO=root
+HOME=/
 
-@hourly for file in /etc/cron.hourly/*;do echo "$file" >> /var/log/cron/hourly-$(date +"%Y-%m-%d").log && bash "$file" >> /var/log/cron/hourly-$(date +"%Y-%m-%d").log 2>&1;done 
-@daily for file in /etc/cron.daily/*;do echo "$file" >> /var/log/cron/daily-$(date +"%Y-%m-%d").log && bash "$file" >> /var/log/cron/daily-$(date +"%Y-%m-%d").log 2>&1;done
-@weekly for file in /etc/cron.weekly/*;do echo "$file" >> /var/log/cron/weekly-$(date +"%Y-%m-%d").log && bash "$file" >> /var/log/cron/weekly-$(date +"%Y-%m-%d").log 2>&1;done
-@monthly for file in /etc/cron.monthly/*;do echo "$file" >> /var/log/cron/monthly-$(date +"%Y-%m-%d").log && bash "$file" >> /var/log/cron/monthly-$(date +"%Y-%m-%d").log 2>&1;done
+@hourly bash hourly
+@daily bash daily
+@weekly bash weekly
+@monthly bash monthly
