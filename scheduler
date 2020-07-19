@@ -1,5 +1,8 @@
 SHELL=/bin/bash
 BASH_ENV=/container.env
+
+# run-parts
+* * * * * echo $(date) >> /var/log/cron/date.log 2>&1
 @hourly run-parts /etc/cron.hourly >> /var/log/cron/cron.log 2>&1
 @daily run-parts /etc/cron.daily >> /var/log/cron/cron.log 2>&1
 @weekly run-parts /etc/cron.weekly >> /var/log/cron/cron.log 2>&1
