@@ -13,6 +13,10 @@ RUN apt update && \
 
 COPY entrypoint.sh /
 COPY scheduler /
+COPY hourly /
+COPY daily /
+COPY weekly /
+COPY monthly /
 
 RUN chmod +x /entrypoint.sh
 
