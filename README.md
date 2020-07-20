@@ -2,11 +2,10 @@
 
 Сервер Zabbix 5.0 с поддержкой базы данных MySQL 8.0, Zabbix веб-интерфейсом на основе Nginx веб-сервера и Zabbix Java gateway. 
 
-**Запуск:**
+**Запуск**
 
-1. Настройка переменных.
+1. Настройте переменные в файле main.env
 
-Настройте переменные в файле main.env
 ```
 MYSQL_DATABASE=zabbix
 MYSQL_USER=zabbix
@@ -16,18 +15,25 @@ PHP_TZ=Europe/Moscow
 ZBX_SERVER_NAME=Zabbix Docker
 ```
 
-2. Установка пакетов в dockerfile.
+2. Установка необходимых пакетов в dockerfile
 ```
 apt install \
     cron \
     tzdata \
     locales \
-    **curl** \
-    **bash** \
+    `curl` \
     -y && \
 ```
 
-3. Запуск:
+3. Запуск
 ```
 docker-compose up -d
 ```
+
+**Структура приложения**
+
+- alertscripts - папка со скриптами оповещений
+- backup - папка для дампов базы данных mysql-server
+- cron.hourly, cron.daily, cron.weekly и cron.monthly - папки для задач планировщика
+- cron.logs - папка с логами cron
+- mibs - папка с MIBs файлами
