@@ -23,7 +23,7 @@ apt install \
     cron \
     tzdata \
     locales \
-    <span style="color:red">*curl*</span> \
+    **curl** \
     -y && \
 ```
 
