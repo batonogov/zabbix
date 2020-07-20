@@ -1,6 +1,6 @@
 # Zabbix
 
-Сервер Zabbix 5.0 с поддержкой базы данных MySQL 8.0, Zabbix веб-интерфейсом на основе Nginx веб-сервера и Zabbix Java gateway. 
+Сервер Zabbix 5.0 с поддержкой базы данных MySQL 8.0, Zabbix веб-интерфейсом на основе веб-сервера Nginx и Zabbix Java gateway. 
 
 **Запуск:**
 
