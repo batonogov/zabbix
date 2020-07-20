@@ -2,9 +2,7 @@
 
 Сервер Zabbix 5.0 с поддержкой базы данных MySQL 8.0, Zabbix веб-интерфейсом на основе веб-сервера Nginx и Zabbix Java gateway. 
 
-Создано на основе официального репозиторя Zabbix-Docker
-
-[GitHub](https://github.com/zabbix/zabbix-docker) 
+Создано на основе официального репозиторя [Zabbix-Docker](https://github.com/zabbix/zabbix-docker).
 
 **Запуск:**
 
