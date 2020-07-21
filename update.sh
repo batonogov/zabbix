@@ -7,5 +7,4 @@ docker pull zabbix/zabbix-web-nginx-mysql:alpine-5.0-latest
 docker-compose down
 docker-compose rm
 docker-compose up --build -d
-sleep 60
 docker exec zabbix-backup bash restoredb.sh >> /var/log/etc/update-$(date +"%Y-%m-%d").log 2>&1;
