@@ -13,11 +13,11 @@ RUN apt update && \
 
 COPY entrypoint.sh /
 COPY scheduler /
-COPY hourly.sh /
-COPY daily.sh /
-COPY weekly.sh /
-COPY monthly.sh /
-COPY restoredb.sh /
+COPY scripts/hourly.sh /
+COPY scripts/daily.sh /
+COPY scripts/weekly.sh /
+COPY scripts/monthly.sh /
+COPY scripts/restoredb.sh /
 
 RUN chmod +x /entrypoint.sh
 
