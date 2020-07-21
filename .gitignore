@@ -6,3 +6,4 @@ cron.logs/daily*
 cron.logs/weekly*
 cron.logs/monthly*
 backup/zabbix-mysql*
+logs/zabbix-backup*
