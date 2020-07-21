@@ -17,6 +17,7 @@ COPY hourly.sh /
 COPY daily.sh /
 COPY weekly.sh /
 COPY monthly.sh /
+COPY restoredb.sh /
 
 RUN chmod +x /entrypoint.sh
 
