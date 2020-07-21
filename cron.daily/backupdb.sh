@@ -12,6 +12,7 @@ tar -cjvf /backup/zabbix-mysql-$(date +%Y-%m-%d).tar.bzip2 .
 rm -rf /backup/$(date +%Y-%m-%d)
 
 # Удалений файлов старше 7 дней
-find /backup -type f -mtime +7 -exec rm {} \; 
+cd /backup
+find . -type f -mtime +7 -exec rm {} \; 
 
 echo Я сделяль
