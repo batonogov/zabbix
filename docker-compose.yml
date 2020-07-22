@@ -52,6 +52,7 @@ services:
   # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно установить через dockerfile
   backup:
     build: .
+    # image: batonogov/zabbix-backup # Для использования готового образа.
     container_name: zabbix-backup
     links:
       - mysql-server
