@@ -54,6 +54,7 @@ services:
     build: .
     # image: batonogov/zabbix-backup # Для использования готового образа.
     container_name: zabbix-backup
+    privileged: true
     links:
       - mysql-server
     env_file:
