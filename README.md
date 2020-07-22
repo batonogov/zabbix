@@ -30,7 +30,7 @@ apt install \
 
 3. Запуск
 ```
-bash install.sh или install.bat (Для Windows)
+bash up.sh или up.bat (Для Windows)
 ```
 
 **Учетная запись по умолчанию:**
