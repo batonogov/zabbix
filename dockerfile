@@ -6,6 +6,7 @@ RUN apt update && \
         cron \
         tzdata \
         locales \
+        cifs-utils \
         -y && \
     cp /usr/share/zoneinfo/Europe/Moscow /etc/localtime && \
     sed -i -e 's/# ru_RU.UTF-8 UTF-8/ru_RU.UTF-8 UTF-8/' /etc/locale.gen && locale-gen \
