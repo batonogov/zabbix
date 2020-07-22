@@ -54,3 +54,5 @@ zabbix
 Для восстановления базы данных из последней резервной копии запустите restore.sh или restore.bat (Для Windows).
 
 Скрипт update.sh или update.bat (Для Windows) создат резерную копию базы данных обновит все необходимые образы, переустановит сервис полностью и посстановит базу данных из созданной резервной копии.
+
+Готовый контенер Zabbix-backup досутпен на [Docker Hub](https://hub.docker.com/repository/docker/batonogov/zabbix-backup).
