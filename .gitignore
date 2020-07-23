@@ -1,9 +1,9 @@
 .DS_Store
-start.sh
+test.sh
 secrets.env
 cron.logs/hourly*
 cron.logs/daily*
 cron.logs/weekly*
 cron.logs/monthly*
 backup/zabbix-mysql*
-logs/zabbix-backup*
+logs/*
