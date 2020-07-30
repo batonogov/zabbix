@@ -1,5 +1,5 @@
 .DS_Store
-test.sh
+down.sh
 secrets.env
 cron.logs/hourly*
 cron.logs/daily*
