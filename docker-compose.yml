@@ -29,6 +29,7 @@ services:
     volumes:
       - ./mibs:/var/lib/zabbix/mibs
       - ./alertscripts:/usr/lib/zabbix/alertscripts
+      - ./ssh_keys:/var/lib/zabbix/ssh_keys
     links:
       - mysql-server:mysql
       - zabbix-java-gateway:zabbix-java-gateway
