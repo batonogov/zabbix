@@ -60,6 +60,7 @@ services:
       - mysql-server
     env_file:
       - main.env
+      # - secrets.env
     volumes:
       - ./backup:/backup
       - ./mibs:/var/lib/zabbix/mibs
