@@ -35,7 +35,7 @@ apt install \
 ```
 bash up.sh или up.bat (Для Windows)
 ```
-Веб интерфес появится по адресу localhost:32775 (Порт можно исменить в docker-compose.yml)
+Веб интерфес появится по адресу localhost:32775 (Порт можно изменить в docker-compose.yml)
 
 **Учетная запись Zabbix по умолчанию:**
 ```
