@@ -73,8 +73,8 @@ zabbix
 
 **Поведение после установки:**
 
-- cron.daily\backupdb.sh - ежедневно создает дамп базы данных и сожраняет архив с ним папку backup, он будет храниться до 7 дней.
-- cron.daily\cleaner.sh - ежедневно удаляет старые файлы.
-- cron.daily\copy-backup.sh - ежедневно копирует резерные копии на CIFS/SMB шару.
+- cron.daily/backupdb.sh - ежедневно создает дамп базы данных и сожраняет архив с ним папку backup, он будет храниться до 7 дней.
+- cron.daily/cleaner.sh - ежедневно удаляет старые файлы.
+- cron.daily/copy-backup.sh - ежедневно копирует резерные копии на CIFS/SMB шару.
 
 Готовый образ Zabbix-backup досутпен на [Docker Hub](https://hub.docker.com/repository/docker/batonogov/zabbix-backup).
