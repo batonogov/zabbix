@@ -18,6 +18,7 @@ COPY scripts/hourly.sh /
 COPY scripts/daily.sh /
 COPY scripts/weekly.sh /
 COPY scripts/monthly.sh /
+COPY scripts/reboot.sh /
 COPY scripts/restoredb.sh /
 
 RUN chmod +x /entrypoint.sh
