@@ -69,6 +69,6 @@ services:
       - ./cron.daily:/etc/cron.daily
       - ./cron.weekly:/etc/cron.weekly
       - ./cron.monthly:/etc/cron.monthly
+      - ./cron.reboot:/etc/cron.reboot
       - ./cron.logs:/var/log/cron
-      - ./logs:/var/log/etc
     restart: unless-stopped:0
