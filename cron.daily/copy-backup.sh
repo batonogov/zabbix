@@ -1,5 +1,3 @@
-echo $(date)
-
 if [ -z "$cifs_share" ]
 then
     echo "\$cifs_share is empty"

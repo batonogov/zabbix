@@ -1,5 +1,3 @@
-echo $(date)
-
 mkdir /backup/$(date +%Y-%m-%d)
 cd /backup/$(date +%Y-%m-%d)
 
