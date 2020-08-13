@@ -3,4 +3,3 @@ down.sh
 secrets.env
 cron.logs/*
 backup/*
-logs/*
