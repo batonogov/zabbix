@@ -45,17 +45,17 @@ zabbix
 
 **Структура приложения:**
 
-- alertscripts - скрипты оповещений
-- backup - дампы базы данных mysql-server
-- cron.daily - ежедневные задачи для планировщика
-- cron.hourly - ежечасные задачами для планировщика
-- cron.logs - папка с логами cron
-- cron.monthly - ежемесячные задачи для планировщика
-- cron.weekly - еженедельные задачи для планировщика
-- logs - прочие логи
-- mibs - MIB файлами
-- scripts - скрипты копируемые в образ zabbix-backup через dockerfile
-- ssh_keys - ssh ключи
+- alertscripts/ - скрипты оповещений
+- backup/ - дампы базы данных mysql-server
+- cron.daily/ - ежедневные задачи для планировщика
+- cron.hourly/ - ежечасные задачами для планировщика
+- cron.logs/ - папка с логами cron
+- cron.monthly/ - ежемесячные задачи для планировщика
+- cron.reboot/ - задачи, которые планировщик выполняет после перезагрузки
+- cron.weekly/ - еженедельные задачи для планировщика
+- mibs/ - MIB файлами
+- scripts/ - скрипты копируемые в образ zabbix-backup через dockerfile
+- ssh_keys/ - ssh ключи
 - backup.bat - принудительное резервное копирование базы данных в папку backup (Для Windows)
 - backup.sh - принудительное резервное копирование базы данных в папку backup 
 - docker-compose.yml - docker-compose файл
