@@ -1,5 +1,4 @@
 .DS_Store
-down.sh
 secrets.env
 cron.logs/*
 backup/*
