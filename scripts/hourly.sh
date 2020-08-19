@@ -1,6 +1,6 @@
 if [ -z "$(ls -A /etc/cron.hourly)" ]; then
-    echo $(date) >> /var/log/cron/hourly-$(date +"%Y-%m-%d").log 2>&1; 
-    echo "/etc/cron.hourly/ пуста" >> /var/log/cron/hourly-$(date +"%Y-%m-%d").log 2>&1;
+    echo $(date)
+    echo "/etc/cron.hourly/ пуста"
 else
     for file in /etc/cron.hourly/*
     do 

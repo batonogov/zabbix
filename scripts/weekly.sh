@@ -1,6 +1,6 @@
 if [ -z "$(ls -A /etc/cron.weekly)" ]; then
-    echo $(date) >> /var/log/cron/weekly-$(date +"%Y-%m-%d").log 2>&1; 
-    echo "/etc/cron.weekly/ пуста" >> /var/log/cron/weekly-$(date +"%Y-%m-%d").log 2>&1;
+    echo $(date)
+    echo "/etc/cron.weekly/ пуста"
 else
     for file in /etc/cron.weekly/*
     do 
