@@ -1,11 +1,23 @@
-if [ -z "$(ls -A /etc/cron.reboot)" ]; then
-    echo $(date)
-    echo "/etc/cron.reboot/ пуста"
-else
-    for file in /etc/cron.reboot/*
-    do 
-        echo "$file" >> /var/log/cron/reboot-$(date +"%Y-%m-%d").log 2>&1; 
+for file in /etc/cron.reboot/*.sh
+do  
+    if [[ "$file" = "/etc/cron.reboot/*.sh" ]]
+    then
+        echo "$file"
+    else
         echo $(date) >> /var/log/cron/reboot-$(date +"%Y-%m-%d").log 2>&1;
+        echo "$file" >> /var/log/cron/reboot-$(date +"%Y-%m-%d").log 2>&1; 
         bash "$file" >> /var/log/cron/reboot-$(date +"%Y-%m-%d").log 2>&1;
-    done
-fi
+    fi
+done
+
+for file in /etc/cron.reboot/*.py
+do 
+    if [[ "$file" = "/etc/cron.reboot/*.py" ]]
+    then
+        echo "$file"
+    else
+        echo $(date) >> /var/log/cron/reboot-$(date +"%Y-%m-%d").log 2>&1;
+        echo "$file" >> /var/log/cron/reboot-$(date +"%Y-%m-%d").log 2>&1; 
+        python3 "$file" >> /var/log/cron/reboot-$(date +"%Y-%m-%d").log 2>&1;
+    fi
+done
