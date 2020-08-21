@@ -2,4 +2,3 @@
 secrets.env
 cron.logs/*
 backup/*
-pull.sh
