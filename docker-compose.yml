@@ -2,7 +2,7 @@ version: '3.8'
 services:
   # Запуск пустого экземпляр MySQL сервера
   mysql-server:
-    image: mysql:8.0
+    image: mariadb:10
     container_name: mysql-server
     env_file:
       - main.env
