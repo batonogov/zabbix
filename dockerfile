@@ -1,4 +1,4 @@
-FROM batonogov/cron
+FROM batonogov/cron:1.0
 
 RUN apt update && \
     apt upgrade -y && \
