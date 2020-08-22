@@ -24,10 +24,7 @@ ZBX_SERVER_NAME=Zabbix Docker
 2. Установка необходимых пакетов в dockerfile
 ```
 apt install \
-    cron \
-    tzdata \
-    locales \
-    cifs-utils \
+    mariadb-server \
     -y && \
 ```
 
