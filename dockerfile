@@ -4,6 +4,7 @@ RUN apt update && \
     apt upgrade -y && \
     apt install \
         mariadb-server \
+        cifs-utils \
         -y && \
     apt clean
 
