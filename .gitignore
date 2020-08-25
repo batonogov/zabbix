@@ -3,3 +3,4 @@ secrets.env
 cron.logs/*
 backup/*
 update_images.sh
+images.tar
