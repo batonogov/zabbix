@@ -4,3 +4,4 @@ cron.logs/*
 backup/*
 update_images.sh
 images.tar
+clean.sh
