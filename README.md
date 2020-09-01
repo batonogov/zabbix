@@ -1,10 +1,11 @@
 # Zabbix
 
-Сервер Zabbix 5.0 с поддержкой базы данных MySQL 8.0, Zabbix веб-интерфейсом на основе веб-сервера Nginx и Zabbix Java gateway. 
+Сервер Zabbix 5.0 с поддержкой базы данных MariaDB 10, Zabbix веб-интерфейсом на основе веб-сервера Nginx и Zabbix Java gateway. 
 
 Создано на основе официального репозитория [Zabbix-Docker](https://github.com/zabbix/zabbix-docker).
+Сервисный контейнер создан на основе образа [batonogov/cron](https://github.com/batonogov/cron).
 
-К официальным контейнерам добавлен "Сервисный" контейнер zabbix-backup, который умеет делать дамп и восстанорвление базы данных, а также внутри него работает планировщик задач cron для автоматизации работы.
+Сервисный контейнер zabbix-backup умеет делать дамп и восстанорвление базы данных, а также внутри него работает планировщик задач cron для автоматизации работы.
 
 **Запуск:**
 
@@ -21,10 +22,11 @@ PHP_TZ=Europe/Moscow
 ZBX_SERVER_NAME=Zabbix Docker
 ```
 
-2. Установка необходимых пакетов в dockerfile
+2. Установка необходимых пакетов для работы cron в dockerfile
 ```
 apt install \
     mariadb-server \
+    cifs-utils \
     -y && \
 ```
 
@@ -73,3 +75,4 @@ zabbix
 - cron.daily/copy-backup.sh - ежедневно копирует резерные копии на CIFS/SMB шару.
 
 Готовый образ Zabbix-backup досутпен на [Docker Hub](https://hub.docker.com/repository/docker/batonogov/zabbix-backup).
+Образ batonogov/cron на [Docker Hub](https://hub.docker.com/repository/docker/batonogov/cron).
