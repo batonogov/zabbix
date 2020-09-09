@@ -1,11 +1,12 @@
 FROM batonogov/cron
 
+LABEL maintainer="batonogov@icloud.com"
+
 RUN apt update && \
-    apt upgrade -y && \
     apt install \
         mariadb-server \
         cifs-utils \
         -y && \
     apt clean
 
-COPY scripts/restoredb.sh /
+COPY scripts/restoredb.sh /usr/local/cron/
