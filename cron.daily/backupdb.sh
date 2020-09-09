@@ -1,8 +1,10 @@
-mkdir /backup/$(date +%Y-%m-%d)
-cd /backup/$(date +%Y-%m-%d)
+date=$(date +%Y-%m-%d)
+
+mkdir /backup/$date
+cd /backup/$date
 
 echo Делаю резервное копирование базы данных
-until mysqldump --host=${DB_SERVER_HOST} --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DATABASE} > /backup/$(date +%Y-%m-%d)/zabbix.sql
+until mysqldump --host=${DB_SERVER_HOST} --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DATABASE} > /backup/$date/zabbix.sql
 do
     date
     sleep 60
@@ -10,8 +12,8 @@ done
 
 echo Архивирую все это добро
 
-tar -cjvf /backup/zabbix-mysql-$(date +%Y-%m-%d).tar.bzip2 .
-rm -rf /backup/$(date +%Y-%m-%d)
+tar -cjvf /backup/zabbix-mysql-$date.tar.bzip2 .
+rm -rf /backup/$date
 
 # Удалений файлов старше 7 дней
 cd /backup
