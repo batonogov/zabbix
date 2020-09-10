@@ -1,8 +1,6 @@
 .DS_Store
+backup/
+cron*
+!cron.daily/*
+!cron.reboot/*
 secrets.env
-cron.logs/*
-backup/*
-update_images.sh
-images.tar
-clean.sh
-registry.tar
