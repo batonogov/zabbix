@@ -5,3 +5,4 @@ backup/*
 update_images.sh
 images.tar
 clean.sh
+registry.tar
