@@ -4,3 +4,5 @@ cron*
 !cron.daily/
 !cron.reboot/
 secrets.env
+cron.reboot/backupdb.py
+update_images.sh
