@@ -6,7 +6,6 @@ RUN apt update && \
     apt install \
         mariadb-server \
         cifs-utils \
-        -y && \
-    apt clean
+        -y
 
 COPY scripts/restoredb.sh /usr/local/cron/
