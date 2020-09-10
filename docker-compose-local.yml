@@ -16,13 +16,13 @@ services:
 
   # Запуск экземпляра Zabbix Java gateway
   zabbix-java-gateway:
-    image: localhost:5000/zabbix-java-gateway:alpine-5.0-latest
+    image: localhost:5000/zabbix/zabbix-java-gateway:alpine-5.0-latest
     container_name: zabbix-java-gateway
     restart: unless-stopped:0
 
   # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MySQL сервера
   zabbix-server-mysql:
-    image: localhost:5000/zabbix-server-mysql:alpine-5.0-latest
+    image: localhost:5000/zabbix/zabbix-server-mysql:alpine-5.0-latest
     container_name: zabbix-server-mysql
     env_file:
       - main.env
@@ -39,7 +39,7 @@ services:
 
   # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MySQL сервера и Zabbix сервера
   zabbix-web-nginx-mysql:
-    image: localhost:5000/zabbix-web-nginx-mysql:alpine-5.0-latest
+    image: localhost:5000/zabbix/zabbix-web-nginx-mysql:alpine-5.0-latest
     container_name: zabbix-web-nginx-mysql
     env_file:
       - main.env
@@ -53,7 +53,7 @@ services:
   # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно установить через dockerfile (по необходимости)
   backup:
     # build: .
-    image: localhost:5000/zabbix-backup # Для использования готового образа.
+    image: localhost:5000/batonogov/zabbix-backup # Для использования готового образа.
     container_name: zabbix-backup
     privileged: true
     links:
