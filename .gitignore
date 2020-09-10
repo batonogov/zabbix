@@ -1,6 +1,6 @@
 .DS_Store
 backup/
 cron*
-!cron.daily/*
-!cron.reboot/*
+!cron.daily/
+!cron.reboot/
 secrets.env
