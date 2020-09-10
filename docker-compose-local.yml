@@ -1,0 +1,74 @@
+version: '2.0'
+services:
+  # Запуск пустого экземпляр MySQL сервера
+  mysql-server:
+    image: localhost:5000/mariadb:10
+    container_name: mysql-server
+    env_file:
+      - main.env
+    volumes:
+      - ./backup:/backup
+    restart: unless-stopped:0
+    command: 
+      --character-set-server=utf8 
+      --collation-server=utf8_bin 
+      --default-authentication-plugin=mysql_native_password 
+
+  # Запуск экземпляра Zabbix Java gateway
+  zabbix-java-gateway:
+    image: localhost:5000/zabbix-java-gateway:alpine-5.0-latest
+    container_name: zabbix-java-gateway
+    restart: unless-stopped:0
+
+  # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MySQL сервера
+  zabbix-server-mysql:
+    image: localhost:5000/zabbix-server-mysql:alpine-5.0-latest
+    container_name: zabbix-server-mysql
+    env_file:
+      - main.env
+    volumes:
+      - ./mibs:/var/lib/zabbix/mibs
+      - ./alertscripts:/usr/lib/zabbix/alertscripts
+      - ./ssh_keys:/var/lib/zabbix/ssh_keys
+    links:
+      - mysql-server:mysql
+      - zabbix-java-gateway:zabbix-java-gateway
+    ports: 
+      - 10051:10051
+    restart: unless-stopped:0
+
+  # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MySQL сервера и Zabbix сервера
+  zabbix-web-nginx-mysql:
+    image: localhost:5000/zabbix-web-nginx-mysql:alpine-5.0-latest
+    container_name: zabbix-web-nginx-mysql
+    env_file:
+      - main.env
+    links:
+      - mysql-server:mysql
+      - zabbix-server-mysql:zabbix-server
+    ports:
+      - 32775:8080
+    restart: unless-stopped:0
+
+  # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно установить через dockerfile (по необходимости)
+  backup:
+    # build: .
+    image: localhost:5000/zabbix-backup # Для использования готового образа.
+    container_name: zabbix-backup
+    privileged: true
+    links:
+      - mysql-server
+    env_file:
+      - main.env
+      # - secrets.env
+    volumes:
+      - ./backup:/backup
+      - ./mibs:/var/lib/zabbix/mibs
+      - ./alertscripts:/usr/lib/zabbix/alertscripts
+      - ./cron.hourly:/etc/cron.hourly
+      - ./cron.daily:/etc/cron.daily
+      - ./cron.weekly:/etc/cron.weekly
+      - ./cron.monthly:/etc/cron.monthly
+      - ./cron.reboot:/etc/cron.reboot
+      - ./cron.logs:/var/log/cron
+    restart: unless-stopped:0
