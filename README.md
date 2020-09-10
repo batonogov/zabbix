@@ -10,7 +10,7 @@
 
 1. Настройте переменные в файле main.env
 
-```
+`
 DB_SERVER_HOST=mysql-server
 MYSQL_DATABASE=zabbix
 MYSQL_USER=zabbix
@@ -19,27 +19,27 @@ MYSQL_ROOT_PASSWORD=root_pwd
 ZBX_JAVAGATEWAY=zabbix-java-gateway
 PHP_TZ=Europe/Moscow
 ZBX_SERVER_NAME=Zabbix Docker
-```
+`
 
 2. Установка необходимых пакетов для работы cron в dockerfile
-```
+`
 apt install \
     mariadb-server \
     cifs-utils \
     -y && \
-```
+`
 
 3. Запуск
-```
-bash up.sh или up.bat (Для Windows)
-```
-Веб интерфес появится по адресу localhost:32775 (Порт можно изменить в docker-compose.yml)
+`
+docker-compose up --build -d
+`
+Веб-интерфейс доступен по адресу localhost:32775 (Порт можно изменить в docker-compose.yml)
 
 **Учетная запись Zabbix по умолчанию:**
-```
+`
 Admin
 zabbix
-```
+`
 
 **Структура приложения:**
 
@@ -60,12 +60,20 @@ zabbix
 - dockerfile - dockerfile для сборки образа zabbix-backup
 - main.env - переменные передаваемые в систему
 - README.md - описание системы
-- restore.bat - принудимтельное восстановление базы данных из последжнй доступной резервной копии и папке backup (Для Windows)
-- restore.sh - принудимтельное восстановление базы данных из последжнй доступной резервной копии и папке backup
-- up.bat - скрипт запуска (Для Windows)
-- up.sh - скрипт запуска
 - update.bat - скрипт делает дамп базы данных, проверяет наличие свежих версий образов, перестанавливает zabbix и восстанавливает данные из дампа (Для Windows)
 - update.sh - скрипт делает дамп базы данных, проверяет наличие свежих версий образов, перестанавливает zabbix и восстанавливает данные из дампа
+
+**Обслуживание:**
+
+1. Принудительное восстановление базы данных из последней доступной резервной копии и папке backup
+`
+docker exec zabbix-backup bash restoredb.sh
+`
+
+2. Остановка контенеров
+`
+docker-compose down
+`
 
 **Поведение после установки:**
 

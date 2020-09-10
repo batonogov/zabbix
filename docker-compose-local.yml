@@ -8,7 +8,7 @@ services:
       - main.env
     volumes:
       - ./backup:/backup
-    restart: unless-stopped:0
+    restart: always
     command: 
       --character-set-server=utf8 
       --collation-server=utf8_bin 
@@ -18,7 +18,7 @@ services:
   zabbix-java-gateway:
     image: localhost:5000/zabbix/zabbix-java-gateway:alpine-5.0-latest
     container_name: zabbix-java-gateway
-    restart: unless-stopped:0
+    restart: always
 
   # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MySQL сервера
   zabbix-server-mysql:
@@ -35,7 +35,7 @@ services:
       - zabbix-java-gateway:zabbix-java-gateway
     ports: 
       - 10051:10051
-    restart: unless-stopped:0
+    restart: always
 
   # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MySQL сервера и Zabbix сервера
   zabbix-web-nginx-mysql:
@@ -48,7 +48,7 @@ services:
       - zabbix-server-mysql:zabbix-server
     ports:
       - 32775:8080
-    restart: unless-stopped:0
+    restart: always
 
   # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно установить через dockerfile (по необходимости)
   backup:
@@ -71,4 +71,4 @@ services:
       - ./cron.monthly:/etc/cron.monthly
       - ./cron.reboot:/etc/cron.reboot
       - ./cron.logs:/var/log/cron
-    restart: unless-stopped:0
+    restart: always
