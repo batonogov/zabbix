@@ -13,9 +13,17 @@
 2. Установка необходимых пакетов для работы cron в dockerfile
 
 3. Запустите Zabbix
+
 ```
 docker-compose up --build -d
 ```
+
+*При использовании локального репозитория*
+
+```
+docker-compose --file docker-compose-local.yml up --build -d
+```
+
 Веб-интерфейс доступен по адресу localhost:32775 (Порт можно изменить в docker-compose.yml)
 
 **Учетная запись Zabbix по умолчанию:**
