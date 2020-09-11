@@ -25,7 +25,7 @@ docker-compose up --build -d
 **Local Registry:**
 
 ```
-docker-compose --file docker-compose-local.yml up --build -d
+docker-compose --file docker-compose-local.yml up -d
 ```
 
 Веб-интерфейс доступен по адресу **localhost:32775** (Порт можно изменить в **docker-compose.yml**)
@@ -50,6 +50,7 @@ zabbix
 - dockerfile - dockerfile для сборки образа zabbix-backup
 - LICENSE.md - Лицензия
 - main.env - обьязательные переменные передаваемые в систему
+- update-registy.sh - скрипт обновления Local Registry 
 - update.bat - скрипт делает дамп базы данных, проверяет наличие свежих версий образов, перестанавливает zabbix и восстанавливает данные из дампа (Для Windows)
 - update.sh - скрипт делает дамп базы данных, проверяет наличие свежих версий образов, перестанавливает zabbix и восстанавливает данные из дампа
 
