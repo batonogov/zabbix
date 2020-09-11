@@ -1,8 +1,11 @@
 .DS_Store
+alertscripts/
 backup/
 cron*
 !cron.daily/
 !cron.reboot/
+mibs/
+ssh_keys/
 secrets.env
 cron.reboot/backupdb.py
 update_images.sh
