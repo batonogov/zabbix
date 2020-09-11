@@ -8,4 +8,3 @@ mibs/
 ssh_keys/
 secrets.env
 cron.reboot/backupdb.py
-update_images.sh
