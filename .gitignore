@@ -7,4 +7,3 @@ cron*
 mibs/
 ssh_keys/
 secrets.env
-cron.reboot/backupdb.py
