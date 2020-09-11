@@ -1,30 +1,34 @@
 # Zabbix
 
-Сервер Zabbix 5.0 с поддержкой базы данных MariaDB 10, Zabbix веб-интерфейсом на основе веб-сервера Nginx и Zabbix Java gateway. 
+Сервер **Zabbix 5.0** с поддержкой базы данных **MariaDB 10**, Zabbix веб-интерфейсом на основе веб-сервера **Nginx** и **Zabbix Java gateway**. 
 
 Создано на основе официального репозитория [Zabbix-Docker](https://github.com/zabbix/zabbix-docker) и [batonogov/cron](https://github.com/batonogov/cron).
 
-Сервисный контейнер zabbix-backup умеет делать дамп и восстанорвление базы данных, а также внутри него работает планировщик задач cron для автоматизации работы.
+Сервисный контейнер **zabbix-backup** умеет делать дамп и восстанорвление базы данных, а также внутри него работает планировщик задач cron для автоматизации работы.
 
-**Запуск:**
+### Запуск:
 
-1. Настройте переменные в файле main.env
+1. Настройте переменные в файле **main.env**
 
-2. Установка необходимых пакетов для работы cron в dockerfile
+2. Установка необходимых пакетов для работы **cron** в **dockerfile**
 
-3. Запустите Zabbix
+3. Запустите **Zabbix**
+
+**Docker Hub**
 
 ```
 docker-compose up --build -d
 ```
 
-*При использовании локального репозитория*
+4. Настройте переменную **host** в **docker-compose-local.yml**
+
+**Local Registry:**
 
 ```
 docker-compose --file docker-compose-local.yml up --build -d
 ```
 
-Веб-интерфейс доступен по адресу localhost:32775 (Порт можно изменить в docker-compose.yml)
+Веб-интерфейс доступен по адресу **localhost:32775** (Порт можно изменить в **docker-compose.yml**)
 
 **Учетная запись Zabbix по умолчанию:**
 ```
@@ -32,7 +36,7 @@ Admin
 zabbix
 ```
 
-**Структура приложения:**
+### Структура приложения:
 
 - alertscripts/ - скрипты оповещений
 - backup/ - дампы базы данных mysql-server
@@ -49,7 +53,7 @@ zabbix
 - update.bat - скрипт делает дамп базы данных, проверяет наличие свежих версий образов, перестанавливает zabbix и восстанавливает данные из дампа (Для Windows)
 - update.sh - скрипт делает дамп базы данных, проверяет наличие свежих версий образов, перестанавливает zabbix и восстанавливает данные из дампа
 
-**Обслуживание:**
+### Обслуживание:
 
 1. Принудительное восстановление базы данных из последнего доступного дампа в backup/
 ```
@@ -66,10 +70,10 @@ docker-compose down
 docker exec zabbix-backup bash /etc/cron.daily/backupdb.sh
 ```
 
-**Поведение после установки:**
+### Поведение после установки:
 
-- cron.daily/backupdb.sh - ежедневно создает дамп базы данных и сожраняет архив с ним папку backup, он будет храниться до 7 дней.
+- cron.daily/backupdb.sh - ежедневно создает дамп базы данных и сохраняет архив с ним папку backup, он будет храниться до 7 дней.
 - cron.daily/cleaner.sh - ежедневно удаляет старые файлы.
-- cron.daily/copy-backup.sh - ежедневно копирует резерные копии на CIFS/SMB шару.
+- cron.daily/copy-backup.sh - ежедневно копирует резервные копии на CIFS/SMB шару.
 
-Готовый образ Zabbix-backup - [Docker Hub](https://hub.docker.com/repository/docker/batonogov/zabbix-backup). Образ batonogov/cron - [Docker Hub](https://hub.docker.com/repository/docker/batonogov/cron).
+Готовый образ **Zabbix-backup** - [Docker Hub](https://hub.docker.com/repository/docker/batonogov/zabbix-backup). Образ **batonogov/cron** - [Docker Hub](https://hub.docker.com/repository/docker/batonogov/cron).
