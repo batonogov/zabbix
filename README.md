@@ -48,9 +48,14 @@ zabbix
 docker exec zabbix-backup bash restoredb.sh
 ```
 
-2. Остановка контенеров
+2. Остановка контейнеров
 ```
 docker-compose down
+```
+
+3. Принудительный дамп базы данных в backup/
+```
+docker exec zabbix-backup bash /etc/cron.daily/backupdb.sh
 ```
 
 **Поведение после установки:**
