@@ -1,6 +1,6 @@
 version: '2.0'
 services:
-  # Запуск пустого экземпляр MySQL сервера
+  # Запуск пустого экземпляра MariaDB сервера
   mysql-server:
     image: localhost:5000/mariadb:10
     container_name: mysql-server
@@ -20,7 +20,7 @@ services:
     container_name: zabbix-java-gateway
     restart: always
 
-  # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MySQL сервера
+  # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MariaDB сервера и Zabbix Java gateway
   zabbix-server-mysql:
     image: localhost:5000/zabbix/zabbix-server-mysql:alpine-5.0-latest
     container_name: zabbix-server-mysql
@@ -37,7 +37,7 @@ services:
       - 10051:10051
     restart: always
 
-  # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MySQL сервера и Zabbix сервера
+  # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MariaDB сервера и Zabbix сервера
   zabbix-web-nginx-mysql:
     image: localhost:5000/zabbix/zabbix-web-nginx-mysql:alpine-5.0-latest
     container_name: zabbix-web-nginx-mysql
@@ -50,7 +50,7 @@ services:
       - 32775:8080
     restart: always
 
-  # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно установить через dockerfile (по необходимости)
+  # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно установить через dockerfile
   backup:
     # build: .
     image: localhost:5000/batonogov/zabbix-backup # Для использования готового образа.
