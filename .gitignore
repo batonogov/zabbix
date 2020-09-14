@@ -4,6 +4,7 @@ backup/
 cron*
 !cron.daily/
 !cron.reboot/
+!cron.hourly/
 mibs/
 ssh_keys/
 secrets.env
