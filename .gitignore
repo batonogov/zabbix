@@ -8,3 +8,4 @@ cron*
 mibs/
 ssh_keys/
 secrets.env
+update-registy-corp.sh
