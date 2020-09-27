@@ -24,7 +24,7 @@ docker-compose up --build -d
 
 **Local Registry:**
 
-Установка [registry](https://hub.docker.com/_/registry) 
+Установка [registry](https://hub.docker.com/_/registry).
 
 ```
 docker-compose --file docker-compose-local.yml up -d
