@@ -27,8 +27,10 @@ def del_empty_dirs(path):
             os.rmdir(a)
             print(a, 'удалена')
 
+# Осистка  логов
 del_old_files(logs)
 del_empty_dirs(logs)
 
+# Очиста бекапов
 del_old_files(backup)
 del_empty_dirs(backup)
