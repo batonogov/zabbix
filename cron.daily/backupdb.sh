@@ -7,8 +7,4 @@ do
     sleep 60
 done
 
-# Удалений файлов старше 7 дней
-cd /backup
-find . -type f -mtime +7 -exec rm {} \; 
-
 echo Я сделяль

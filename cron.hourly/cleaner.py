@@ -1,7 +1,8 @@
 import os, time
 
 
-path = '/var/log/cron'
+logs = '/var/log/cron'
+backup = '/backup'
 now = time.time()
 days = 7
 
@@ -26,5 +27,8 @@ def del_empty_dirs(path):
             os.rmdir(a)
             print(a, 'удалена')
 
-del_old_files(path)
-del_empty_dirs(path)
+del_old_files(logs)
+del_empty_dirs(logs)
+
+del_old_files(backup)
+del_empty_dirs(backup)
