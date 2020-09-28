@@ -7,7 +7,6 @@ docker pull zabbix/zabbix-server-mysql:alpine-5.0-latest
 docker pull zabbix/zabbix-web-nginx-mysql:alpine-5.0-latest
 # Остановка контенеров
 docker-compose down
-docker-compose rm
 # Запуск контейнеров
 docker-compose up --build -d
 # Восстановление базы данных
