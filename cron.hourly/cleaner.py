@@ -15,8 +15,6 @@ def del_old_files(path):
          if now - mtime > (days * 86400):
             os.remove(file_name)
             print('Удалил', file_name)
-      for name in dirs:
-         dir_name = os.path.join(root, name)
 
 # Удаление пустых папок
 def del_empty_dirs(path):
