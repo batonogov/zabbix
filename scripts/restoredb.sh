@@ -1,11 +1,6 @@
 echo $(date)
 
-filename=zabbix.sql
-cd /backup && gunzip -c `ls -t | head -1` > $filename
-
-until mysql --host=${DB_SERVER_HOST} --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DATABASE} < $filename
+until cd /backup && gunzip -c `ls -t | head -1` | mysql --host=${DB_SERVER_HOST} --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DATABASE}
 do
     sleep 10
 done
-
-rm $filename
