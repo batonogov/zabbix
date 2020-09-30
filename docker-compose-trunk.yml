@@ -1,0 +1,75 @@
+version: '3'
+services:
+  # Запуск пустого экземпляра MariaDB сервера
+  mysql-server:
+    image: mariadb:10
+    container_name: mysql-server
+    env_file:
+      - main.env
+    volumes:
+      - ./backup:/backup
+    restart: always
+    command: 
+      --character-set-server=utf8 
+      --collation-server=utf8_bin 
+      --default-authentication-plugin=mysql_native_password 
+
+  # Запуск экземпляра Zabbix Java gateway
+  zabbix-java-gateway:
+    image: zabbix/zabbix-java-gateway:alpine-trunk
+    container_name: zabbix-java-gateway
+    restart: always
+
+  # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MariaDB сервера и Zabbix Java gateway
+  zabbix-server-mysql:
+    image: zabbix/zabbix-server-mysql:alpine-trunk
+    container_name: zabbix-server-mysql
+    env_file:
+      - main.env
+    volumes:
+      - ./mibs:/var/lib/zabbix/mibs
+      - ./alertscripts:/usr/lib/zabbix/alertscripts
+      - ./ssh_keys:/var/lib/zabbix/ssh_keys
+    links:
+      - mysql-server:mysql
+      - zabbix-java-gateway:zabbix-java-gateway
+    ports: 
+      - 10051:10051
+    restart: always
+
+  # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MariaDB сервера и Zabbix сервера
+  zabbix-web-nginx-mysql:
+    image: zabbix/zabbix-web-nginx-mysql:alpine-trunk
+    container_name: zabbix-web-nginx-mysql
+    env_file:
+      - main.env
+    links:
+      - mysql-server:mysql
+      - zabbix-server-mysql:zabbix-server
+    ports:
+      - 32775:8080
+    restart: always
+
+  # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно установить через dockerfile
+  backup:
+    build: .
+    # image: batonogov/zabbix-backup # Для использования готового образа.
+    container_name: zabbix-backup
+    privileged: true
+    links:
+      - mysql-server
+    env_file:
+      - main.env
+      # - secrets.env
+    volumes:
+      - ./backup:/backup
+      - ./mibs:/var/lib/zabbix/mibs
+      - ./alertscripts:/usr/lib/zabbix/alertscripts
+      - ./cron.hourly:/etc/cron.hourly
+      - ./cron.daily:/etc/cron.daily
+      - ./cron.weekly:/etc/cron.weekly
+      - ./cron.monthly:/etc/cron.monthly
+      - ./cron.reboot:/etc/cron.reboot
+      - ./cron.start:/etc/cron.start
+      - ./cron.logs:/var/log/cron
+    restart: always
