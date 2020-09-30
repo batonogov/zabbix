@@ -11,3 +11,4 @@ REM Запуск контейнеров
 docker-compose up --build -d
 REM Восстановление базы данных
 docker exec zabbix-backup bash restoredb.sh
+pause

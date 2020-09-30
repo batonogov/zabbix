@@ -3,7 +3,10 @@ gateway=zabbix-java-gateway:alpine-5.0-latest
 server=zabbix-server-mysql:alpine-5.0-latest
 nginx=zabbix-web-nginx-mysql:alpine-5.0-latest
 backup=zabbix-backup
-host=localhost:5000
+registryport=5000
+host=localhost:$registryport
+
+docker run -d -p $registryport:5000 --restart always --name registry registry:2
 
 docker pull $db
 docker tag $db $host/$db

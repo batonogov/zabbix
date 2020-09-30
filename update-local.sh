@@ -3,7 +3,8 @@ gateway=zabbix-java-gateway:alpine-5.0-latest
 server=zabbix-server-mysql:alpine-5.0-latest
 nginx=zabbix-web-nginx-mysql:alpine-5.0-latest
 backup=zabbix-backup
-host=localhost:32777
+registryport=5000
+host=localhost:$registryport
 
 # Резервное копирование базы данных
 docker exec zabbix-backup bash /etc/cron.daily/backupdb.sh
