@@ -34,7 +34,7 @@ def del_old_file_cifs(path):
    CIFS_PASS = os.getenv('CIFS_PASS')
 
    os.system('mkdir /tmp/lan')
-   os.system('mount -t cifs %s /tmp/lan -o user=%s,password=%s' % (CIFS_PATH, CIFS_USER, CIFS_PASS))
+   os.system('mount -t cifs %s /tmp/lan -o user=%s,password=%s' % (cifs_share, login, password))
    os.chdir(path)
    for root, dirs, files in os.walk('.', topdown = False):
       for name in files:
