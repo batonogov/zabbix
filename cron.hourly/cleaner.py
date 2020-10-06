@@ -29,12 +29,12 @@ def del_empty_dirs(path):
             print(a, 'удалена')
 
 def del_old_file_cifs(path):
-   CIFS_PATH = os.getenv('CIFS_PATH')
-   CIFS_USER = os.getenv('CIFS_USER')
-   CIFS_PASS = os.getenv('CIFS_PASS')
+   CIFS_PATH = os.getenv('cifs_share')
+   CIFS_USER = os.getenv('login')
+   CIFS_PASS = os.getenv('password')
 
    os.system('mkdir /tmp/lan')
-   os.system('mount -t cifs %s /tmp/lan -o user=%s,password=%s' % (cifs_share, login, password))
+   os.system('mount -t cifs %s /tmp/lan -o user=%s,password=%s' % (CIFS_PATH, CIFS_USER, CIFS_PASS))
    os.chdir(path)
    for root, dirs, files in os.walk('.', topdown = False):
       for name in files:
@@ -54,5 +54,4 @@ del_old_files(backup)
 del_empty_dirs(backup)
 
 # Очиста cifs
-del_old_file_cifs(cifs)
 del_old_file_cifs(cifs)
