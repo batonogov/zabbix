@@ -1,3 +1,11 @@
+echo Копирую резервную копию в сеть
+echo -ne '☭☭☭☭☭                   (33%)\r'
+sleep 10
+echo -ne '☭☭☭☭☭☭☭☭☭☭☭☭☭           (66%)\r'
+sleep 10
+echo -ne '☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭ (100%)\r'
+echo -ne '\n'
+
 if [ -z "$cifs_share" ]
 then
     echo "\$cifs_share is empty"
