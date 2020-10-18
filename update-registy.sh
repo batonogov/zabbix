@@ -10,7 +10,7 @@ registryport=5000
 host=localhost:$registryport
 
 # Установка Local registry
-# docker run -d -p $registryport:5000 --restart always --name registry registry:2
+docker run -d -p $registryport:5000 --restart always --name registry registry:2
 
 docker pull $db
 docker tag $db $host/$db
@@ -28,6 +28,5 @@ docker pull zabbix/$nginx
 docker tag zabbix/$nginx $host/$nginx
 docker push $host/$nginx
 
-# docker build .
-docker build -t batonogov/$backup .
-# docker push $host/$backup
+docker build -t $host/$backup .
+docker push $host/$backup
