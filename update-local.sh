@@ -1,8 +1,11 @@
+# Присваивание названий образов переменным
 db=mariadb:10
 gateway=zabbix-java-gateway:alpine-5.0-latest
 server=zabbix-server-mysql:alpine-5.0-latest
 nginx=zabbix-web-nginx-mysql:alpine-5.0-latest
 backup=zabbix-backup
+
+# Присваивание параметров переменным
 registryport=5000
 host=localhost:$registryport
 

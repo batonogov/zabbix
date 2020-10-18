@@ -50,10 +50,11 @@ services:
       - 32775:8080
     restart: always
 
-  # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно установить через dockerfile
+  # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно доустановить через dockerfile
   backup:
     build: .
-    # image: batonogov/zabbix-backup # Для использования готового образа.
+    # Для использования готового образа hub.docker.com/repository/docker/batonogov/zabbix-backup
+    # image: batonogov/zabbix-backup 
     container_name: zabbix-backup
     privileged: true
     links:

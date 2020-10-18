@@ -28,6 +28,7 @@ def del_empty_dirs(path):
             os.rmdir(a)
             print(a, 'удалена')
 
+# Удаление файлов старше 7 суток на cifs шаре 
 def del_old_file_cifs(path):
    CIFS_PATH = os.getenv('cifs_share')
    CIFS_USER = os.getenv('login')
@@ -45,7 +46,7 @@ def del_old_file_cifs(path):
             print('Удалил', file_name)
    os.system('umount /tmp/lan')
 
-# Осистка  логов
+# Осистка логов
 del_old_files(logs)
 del_empty_dirs(logs)
 

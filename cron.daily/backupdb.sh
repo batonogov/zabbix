@@ -1,5 +1,6 @@
 date=$(date +%Y-%m-%d)
 
+# Програсс бар
 echo Делаю резервное копирование базы данных
 echo -ne '☭☭☭☭☭                   (33%)\r'
 sleep 10
@@ -8,6 +9,7 @@ sleep 10
 echo -ne '☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭ (100%)\r'
 echo -ne '\n'
 
+# Дамп базы данных
 until mysqldump --host=${DB_SERVER_HOST} --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DATABASE} | gzip > /backup/zabbix-mysql-$date.sql.gz
 do
     date
