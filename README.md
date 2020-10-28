@@ -1,6 +1,6 @@
 # Zabbix
 
-Сервер **Zabbix 5.0** с поддержкой базы данных **MariaDB 10**, Zabbix веб-интерфейсом на основе веб-сервера **Nginx** и **Zabbix Java gateway**. 
+Сервер **Zabbix 5** с поддержкой базы данных **MariaDB 10**, Zabbix веб-интерфейсом на основе веб-сервера **Nginx** и **Zabbix Java gateway**. 
 
 Создано на основе официального репозитория [Zabbix-Docker](https://github.com/zabbix/zabbix-docker) и [batonogov/cron](https://github.com/batonogov/cron).
 

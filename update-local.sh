@@ -1,8 +1,13 @@
+# Весия Zabbix (5.0 или 5.2)
+version=5.0
+
+echo Zabbix $version
+
 # Присваивание названий образов переменным
 db=mariadb:10
-gateway=zabbix-java-gateway:alpine-5.0-latest
-server=zabbix-server-mysql:alpine-5.0-latest
-nginx=zabbix-web-nginx-mysql:alpine-5.0-latest
+gateway=zabbix-java-gateway:alpine-$version-latest
+server=zabbix-server-mysql:alpine-$version-latest
+nginx=zabbix-web-nginx-mysql:alpine-$version-latest
 backup=zabbix-backup
 
 # Присваивание параметров переменным
