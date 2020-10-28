@@ -16,8 +16,16 @@
 
 **Docker Hub**
 
+Для версии Zabbix 5.0
+
 ```
 docker-compose up --build -d
+```
+
+Для версии Zabbix 5.2
+
+```
+docker-compose --file docker-compose-5.2.yml up --build -d
 ```
 
 4. Настройте переменную **host** в **docker-compose-local.yml**

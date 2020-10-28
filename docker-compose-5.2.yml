@@ -1,5 +1,3 @@
-# Тестовчая версия Zabbix
-
 version: '3'
 services:
   # Запуск пустого экземпляра MariaDB сервера
@@ -18,13 +16,13 @@ services:
 
   # Запуск экземпляра Zabbix Java gateway
   zabbix-java-gateway:
-    image: zabbix/zabbix-java-gateway:alpine-trunk
+    image: zabbix/zabbix-java-gateway:alpine-5.2-latest
     container_name: zabbix-java-gateway
     restart: always
 
   # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MariaDB сервера и Zabbix Java gateway
   zabbix-server-mysql:
-    image: zabbix/zabbix-server-mysql:alpine-trunk
+    image: zabbix/zabbix-server-mysql:alpine-5.2-latest
     container_name: zabbix-server-mysql
     env_file:
       - main.env
@@ -41,7 +39,7 @@ services:
 
   # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MariaDB сервера и Zabbix сервера
   zabbix-web-nginx-mysql:
-    image: zabbix/zabbix-web-nginx-mysql:alpine-trunk
+    image: zabbix/zabbix-web-nginx-mysql:alpine-5.2-latest
     container_name: zabbix-web-nginx-mysql
     env_file:
       - main.env
