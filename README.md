@@ -1,6 +1,6 @@
 # Zabbix
 
-Сервер **Zabbix 5** с поддержкой базы данных **MariaDB 10**, Zabbix веб-интерфейсом на основе веб-сервера **Nginx** и **Zabbix Java gateway**. 
+Сервер **Zabbix 5.x** с поддержкой базы данных **MariaDB 10**, Zabbix веб-интерфейсом на основе веб-сервера **Nginx** и **Zabbix Java gateway**. 
 
 Создано на основе официального репозитория [Zabbix-Docker](https://github.com/zabbix/zabbix-docker) и [batonogov/cron](https://github.com/batonogov/cron).
 
@@ -22,7 +22,7 @@
 docker-compose up --build -d
 ```
 
-Для версии Zabbix 5.2
+Для версии Zabbix 5.2 (Допустимо обновление с 5.0)
 
 ```
 docker-compose --file docker-compose-5.2.yml up --build -d
@@ -34,8 +34,16 @@ docker-compose --file docker-compose-5.2.yml up --build -d
 
 Установка [registry](https://hub.docker.com/_/registry).
 
+Для версии Zabbix 5.0
+
 ```
 docker-compose --file docker-compose-local.yml up -d
+```
+
+Для версии Zabbix 5.2 (Допустимо обновление с 5.0)
+
+```
+docker-compose --file docker-compose-5.2-local.yml up -d
 ```
 
 Веб-интерфейс доступен по адресу **localhost:32775** (Порт можно изменить в **docker-compose.yml**)
