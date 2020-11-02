@@ -1,5 +1,5 @@
 # Весия Zabbix (5.0 или 5.2)
-version=5.0
+version=5.2
 
 echo Zabbix $version
 
@@ -11,8 +11,9 @@ nginx=zabbix-web-nginx-mysql:alpine-$version-latest
 backup=zabbix-backup
 
 # Присваивание параметров переменным
+registryserver=localhost
 registryport=5000
-host=localhost:$registryport
+host=$registryserver:$registryport
 
 # Установка Local registry
 docker run -d -p $registryport:5000 --restart always --name registry registry:2

@@ -2,7 +2,7 @@ FROM batonogov/cron
 
 LABEL maintainer="batonogov@icloud.com"
 
-# Принеобходимости установите необходимые пакеты в контенер zabbix-backup
+# При необходимости установите необходимые пакеты в контенер zabbix-backup
 RUN apt update && \
     apt install \
         mariadb-server \
