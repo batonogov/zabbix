@@ -13,6 +13,9 @@ echo -ne '\n'
 cd /backup
 file=`ls -t | head -1`
 
+# Создание резервной копии дампа
+cp $file $file.bak
+
 # Восстановление базы данных
 until gunzip -c $file | mysql --host=${DB_SERVER_HOST} --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} ${MYSQL_DATABASE}
 do
