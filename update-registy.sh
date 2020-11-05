@@ -12,7 +12,7 @@ backup=zabbix-backup
 
 # Присваивание параметров переменным
 registryserver=localhost
-registryport=5000
+registryport=32777
 host=$registryserver:$registryport
 
 # Установка Local registry
