@@ -28,19 +28,21 @@ docker-compose up --build -d
 docker-compose --file docker-compose-5.2.yml up --build -d
 ```
 
-4. Настройте переменную **host** в **docker-compose-local.yml**
-
 **Local Registry:**
 
-Установка [registry](https://hub.docker.com/_/registry).
+Обновитье локальный регистр
 
-Для версии Zabbix 5.0
+```
+update-registy.sh
+```
+
+Версия Zabbix 5.0
 
 ```
 docker-compose --file docker-compose-local.yml up -d
 ```
 
-Для версии Zabbix 5.2 (Допустимо обновление с 5.0)
+Версия Zabbix 5.2 (Допустимо обновление с 5.0)
 
 ```
 docker-compose --file docker-compose-5.2-local.yml up -d
