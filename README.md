@@ -60,19 +60,19 @@ zabbix
 
 - alertscripts/ - скрипты оповещений
 - backup/ - дампы базы данных mysql-server
-- cron*/ - папки для задач планировщика
-- cron.logs/ - папка с логами cron
+- cron/* - папки для задач планировщика
+- cron/logs/ - папка с логами cron
 - mibs/ - MIB файлами
 - scripts/ - скрипты копируемые в образ zabbix-backup через dockerfile
 - ssh_keys/ - ssh ключи
 - docker-compose.yml - docker-compose файл
 - docker-compose-local.yml - docker-compose файл для развертывания из локального репозитория
+- docker-compose-5.2.yml - docker-compose файл
+- docker-compose-local-5.2.yml - docker-compose файл для развертывания из локального репозитория
 - dockerfile - dockerfile для сборки образа zabbix-backup
 - LICENSE.md - Лицензия
 - main.env - обьязательные переменные передаваемые в систему
 - update-registy.sh - скрипт обновления Local Registry 
-- update.bat - скрипт делает дамп базы данных, проверяет наличие свежих версий образов, перестанавливает zabbix и восстанавливает данные из дампа (Для Windows)
-- update.sh - скрипт делает дамп базы данных, проверяет наличие свежих версий образов, перестанавливает zabbix и восстанавливает данные из дампа
 
 ### Обслуживание:
 
@@ -93,8 +93,8 @@ docker exec zabbix-backup bash /etc/cron.daily/backupdb.sh
 
 ### Поведение после установки:
 
-- cron.daily/backupdb.sh - ежедневно создает дамп базы данных и сохраняет архив с ним папку backup
-- cron.daily/copy-backup.sh - ежедневно копирует резервные копии на CIFS/SMB шару
-- cron.hourly/cleaner.py - каждый час удалает логи и бекапы созданные более 7 дней назад
+- cron/daily/backupdb.sh - ежедневно создает дамп базы данных и сохраняет архив с ним папку backup
+- cron/daily/copy-backup.sh - ежедневно копирует резервные копии на CIFS/SMB шару
+- cron/hourly/cleaner.py - каждый час удалает логи и бекапы созданные более 7 дней назад
 
 Готовый образ **Zabbix-backup** - [Docker Hub](https://hub.docker.com/repository/docker/batonogov/zabbix-backup). Образ **batonogov/cron** - [Docker Hub](https://hub.docker.com/repository/docker/batonogov/cron).
