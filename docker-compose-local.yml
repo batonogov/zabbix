@@ -74,3 +74,11 @@ services:
       - ./cron.start:/etc/cron.start
       - ./cron.logs:/var/log/cron
     restart: always
+
+  grafana:
+    image: localhost:32777/grafana
+    container_name: grafana
+    ports: 
+      - 32776:3000
+    env_file: 
+      - grafana.env
