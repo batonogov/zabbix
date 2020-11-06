@@ -11,3 +11,5 @@ ssh_keys/
 secrets.env
 update-registy-corp.sh
 update.*
+grafana_plugins
+
