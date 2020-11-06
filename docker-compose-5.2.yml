@@ -1,4 +1,4 @@
-version: '3'
+version: '3.5'
 services:
   # Запуск пустого экземпляра MariaDB сервера
   mysql-server:
@@ -66,13 +66,13 @@ services:
       - ./backup:/backup
       - ./mibs:/var/lib/zabbix/mibs
       - ./alertscripts:/usr/lib/zabbix/alertscripts
-      - ./cron.hourly:/etc/cron.hourly
-      - ./cron.daily:/etc/cron.daily
-      - ./cron.weekly:/etc/cron.weekly
-      - ./cron.monthly:/etc/cron.monthly
-      - ./cron.reboot:/etc/cron.reboot
-      - ./cron.start:/etc/cron.start
-      - ./cron.logs:/var/log/cron
+      - ./cron/hourly:/etc/cron.hourly
+      - ./cron/daily:/etc/cron.daily
+      - ./cron/weekly:/etc/cron.weekly
+      - ./cron/monthly:/etc/cron.monthly
+      - ./cron/reboot:/etc/cron.reboot
+      - ./cron/start:/etc/cron.start
+      - ./cron/logs:/var/log/cron
     restart: always
 
   grafana:
@@ -82,3 +82,7 @@ services:
       - 32776:3000
     env_file: 
       - grafana.env
+    volumes:
+      - ./grafana/plugins:/var/lib/grafana/plugins
+      # - ./grafana/ldap:/etc/grafana/
+    restart: always
