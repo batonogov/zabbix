@@ -81,7 +81,8 @@ services:
     ports: 
       - 32776:3000
     env_file: 
-      - grafana.env
+      - grafana/configure.env
+      - grafana/plugins.env
     volumes:
       - ./grafana/plugins:/var/lib/grafana/plugins
       # - ./grafana/ldap:/etc/grafana/
