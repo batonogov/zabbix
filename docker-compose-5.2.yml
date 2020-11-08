@@ -27,9 +27,9 @@ services:
     env_file:
       - main.env
     volumes:
-      - ./mibs:/var/lib/zabbix/mibs
-      - ./alertscripts:/usr/lib/zabbix/alertscripts
-      - ./ssh_keys:/var/lib/zabbix/ssh_keys
+      - ./zabbix/mibs:/var/lib/zabbix/mibs
+      - ./zabbix/alertscripts:/usr/lib/zabbix/alertscripts
+      - ./zabbix/ssh_keys:/var/lib/zabbix/ssh_keys
     links:
       - mysql-server:mysql
       - zabbix-java-gateway:zabbix-java-gateway
@@ -64,8 +64,8 @@ services:
       # - secrets.env
     volumes:
       - ./backup:/backup
-      - ./mibs:/var/lib/zabbix/mibs
-      - ./alertscripts:/usr/lib/zabbix/alertscripts
+      - ./zabbix/mibs:/var/lib/zabbix/mibs
+      - ./zabbix/alertscripts:/usr/lib/zabbix/alertscripts
       - ./cron/hourly:/etc/cron.hourly
       - ./cron/daily:/etc/cron.daily
       - ./cron/weekly:/etc/cron.weekly
