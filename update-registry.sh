@@ -41,6 +41,6 @@ docker pull registry:2
 docker tag registry:2 $host/registry:2
 docker push $host/registry:2
 
-docker pull grafana/grafana:7.3.1
+docker pull grafana/grafana
 docker tag grafana/grafana $host/grafana
-docker push $host/grafana:7.3.1
+docker push $host/grafana

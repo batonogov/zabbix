@@ -76,7 +76,7 @@ services:
     restart: always
 
   grafana:
-    image: localhost:32777/grafana:7.3.1
+    image: localhost:32777/grafana
     container_name: grafana
     ports: 
       - 32776:3000

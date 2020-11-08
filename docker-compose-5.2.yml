@@ -76,7 +76,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana:7.3.1
+    image: grafana/grafana
     container_name: grafana
     ports: 
       - 32776:3000
@@ -85,4 +85,5 @@ services:
       - grafana/plugins.env
     volumes:
       - ./grafana/storage:/var/lib/grafana
+      - ./grafana/logs:/var/log/grafana/
     restart: always
