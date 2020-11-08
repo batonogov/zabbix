@@ -1,11 +1,6 @@
 .DS_Store
-.vscode
-alertscripts
-backup
-mibs
-ssh_keys
-secrets.env
-update-registy-corp.sh
-update.*
-plugins
 logs
+storage
+secrets*
+update.*
+update-registry-*
