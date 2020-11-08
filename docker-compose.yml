@@ -85,5 +85,4 @@ services:
       - grafana/plugins.env
     volumes:
       - ./grafana/plugins:/var/lib/grafana/plugins
-      # - ./grafana/ldap:/etc/grafana/
     restart: always
