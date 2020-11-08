@@ -58,13 +58,13 @@ zabbix
 
 ### Структура приложения:
 
-- alertscripts/ - скрипты оповещений
+- zabbix/alertscripts/ - скрипты оповещений
 - backup/ - дампы базы данных mysql-server
 - cron/* - папки для задач планировщика
 - cron/logs/ - папка с логами cron
-- mibs/ - MIB файлами
+- zabbix/mibs/ - MIB файлами
 - scripts/ - скрипты копируемые в образ zabbix-backup через dockerfile
-- ssh_keys/ - ssh ключи
+- zabbix/ssh_keys/ - ssh ключи
 - docker-compose.yml - docker-compose файл
 - docker-compose-local.yml - docker-compose файл для развертывания из локального репозитория
 - docker-compose-5.2.yml - docker-compose файл
