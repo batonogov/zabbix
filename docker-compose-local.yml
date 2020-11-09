@@ -84,5 +84,5 @@ services:
       - grafana/configure.env
     volumes:
       - ./grafana/storage:/var/lib/grafana
-      - ./grafana/logs:/var/log/grafana/
+      - ./grafana/logs:/var/log/grafana
     restart: always
