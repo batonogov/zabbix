@@ -51,11 +51,11 @@ services:
     restart: always
 
   # Это сервисный контейнер для резервного копирования в котором работает cron, необходимые пакеты можно доустановить через dockerfile
-  backup:
+  cron:
     build: .
     # Для использования готового образа hub.docker.com/repository/docker/batonogov/zabbix-backup
     # image: batonogov/zabbix-backup 
-    container_name: zabbix-backup
+    container_name: cron
     privileged: true
     links:
       - mysql-server
@@ -86,4 +86,5 @@ services:
     volumes:
       - ./grafana/storage:/var/lib/grafana
       - ./grafana/logs:/var/log/grafana
+      # - ./grafana/config:/etc/grafana
     restart: always

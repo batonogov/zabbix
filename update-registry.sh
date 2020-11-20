@@ -8,7 +8,6 @@ db=mariadb:10
 gateway=zabbix-java-gateway:alpine-$version-latest
 server=zabbix-server-mysql:alpine-$version-latest
 nginx=zabbix-web-nginx-mysql:alpine-$version-latest
-backup=zabbix-backup
 
 # Присваивание параметров переменным
 registryserver=localhost
@@ -34,8 +33,8 @@ docker pull zabbix/$nginx
 docker tag zabbix/$nginx $host/$nginx
 docker push $host/$nginx
 
-docker build -t $host/$backup .
-docker push $host/$backup
+docker build -t $host/cron .
+docker push $host/cron
 
 docker pull registry:2
 docker tag registry:2 $host/registry:2
