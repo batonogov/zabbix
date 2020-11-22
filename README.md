@@ -34,12 +34,20 @@ update-registy.sh
 docker-compose --file docker-compose-local.yml up -d
 ```
 
-Веб-интерфейс доступен по адресу **localhost:32775** (Порт можно изменить в **docker-compose.yml**)
+Веб-интерфейс Zabbix доступен по адресу **localhost:32775** (Порт можно изменить в **docker-compose.yml**)
 
 **Учетная запись Zabbix по умолчанию:**
 ```
 Admin
 zabbix
+```
+
+Веб-интерфейс Grafana доступен по адресу **localhost:32776** (Порт можно изменить в **docker-compose.yml**)
+
+**Учетная запись Grafana по умолчанию:**
+```
+admin
+admin
 ```
 
 ### Структура приложения:
