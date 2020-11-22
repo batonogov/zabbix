@@ -1,13 +1,8 @@
-# Весия Zabbix (5.0 или 5.2)
-version=5.2
-
-echo Zabbix $version
-
 # Присваивание названий образов переменным
 db=mariadb:10
-gateway=zabbix-java-gateway:alpine-$version-latest
-server=zabbix-server-mysql:alpine-$version-latest
-nginx=zabbix-web-nginx-mysql:alpine-$version-latest
+gateway=zabbix-java-gateway
+server=zabbix-server-mysql
+nginx=zabbix-web-nginx-mysql
 
 # Присваивание параметров переменным
 registryserver=localhost
@@ -33,6 +28,7 @@ docker pull zabbix/$nginx
 docker tag zabbix/$nginx $host/$nginx
 docker push $host/$nginx
 
+docker pull batonogov/cron
 docker build -t $host/cron .
 docker push $host/cron
 

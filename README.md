@@ -1,6 +1,6 @@
 # Zabbix
 
-Сервер **Zabbix 5.x** с поддержкой базы данных **MariaDB 10**, Zabbix веб-интерфейсом на основе веб-сервера **Nginx** и **Zabbix Java gateway**. 
+Стабильная версия **Zabbix** с поддержкой базы данных **MariaDB**, Zabbix веб-интерфейсом на основе веб-сервера **Nginx** и **Zabbix Java gateway**. 
 
 Создано на основе официального репозитория [Zabbix-Docker](https://github.com/zabbix/zabbix-docker) и [batonogov/cron](https://github.com/batonogov/cron).
 
@@ -16,16 +16,8 @@
 
 **Docker Hub**
 
-Для версии Zabbix 5.0
-
 ```
 docker-compose up --build -d
-```
-
-Для версии Zabbix 5.2 (Допустимо обновление с 5.0)
-
-```
-docker-compose --file docker-compose-5.2.yml up --build -d
 ```
 
 **Local Registry:**
@@ -36,16 +28,10 @@ docker-compose --file docker-compose-5.2.yml up --build -d
 update-registy.sh
 ```
 
-Версия Zabbix 5.0
+Запустите Zabbix
 
 ```
 docker-compose --file docker-compose-local.yml up -d
-```
-
-Версия Zabbix 5.2 (Допустимо обновление с 5.0)
-
-```
-docker-compose --file docker-compose-5.2-local.yml up -d
 ```
 
 Веб-интерфейс доступен по адресу **localhost:32775** (Порт можно изменить в **docker-compose.yml**)
@@ -59,16 +45,14 @@ zabbix
 ### Структура приложения:
 
 - zabbix/alertscripts/ - скрипты оповещений
+- zabbix/mibs/ - MIB файлами
+- zabbix/ssh_keys/ - ssh ключи
 - backup/ - дампы базы данных mysql-server
 - cron/* - папки для задач планировщика
 - cron/logs/ - папка с логами cron
-- zabbix/mibs/ - MIB файлами
 - scripts/ - скрипты копируемые в образ zabbix-backup через dockerfile
-- zabbix/ssh_keys/ - ssh ключи
 - docker-compose.yml - docker-compose файл
 - docker-compose-local.yml - docker-compose файл для развертывания из локального репозитория
-- docker-compose-5.2.yml - docker-compose файл
-- docker-compose-local-5.2.yml - docker-compose файл для развертывания из локального репозитория
 - dockerfile - dockerfile для сборки образа zabbix-backup
 - LICENSE.md - Лицензия
 - main.env - обьязательные переменные передаваемые в систему

@@ -1,4 +1,4 @@
-version: '3.5'
+version: '3.8'
 services:
   # Запуск пустого экземпляра MariaDB сервера
   mysql-server:
@@ -16,13 +16,13 @@ services:
 
   # Запуск экземпляра Zabbix Java gateway
   zabbix-java-gateway:
-    image: localhost:32777/zabbix-java-gateway:alpine-5.0-latest
+    image: localhost:32777/zabbix-java-gateway
     container_name: zabbix-java-gateway
     restart: always
 
   # Запуск экземпляра Zabbix сервера и соединение этого экземпляра с недавно созданным экземпляром MariaDB сервера и Zabbix Java gateway
   zabbix-server-mysql:
-    image: localhost:32777/zabbix-server-mysql:alpine-5.0-latest
+    image: localhost:32777/zabbix-server-mysql
     container_name: zabbix-server-mysql
     env_file:
       - main.env
@@ -39,7 +39,7 @@ services:
 
   # Запуск Zabbix веб-интерфейса и соединение этого экземпляра с недавно созданными экземплярами MariaDB сервера и Zabbix сервера
   zabbix-web-nginx-mysql:
-    image: localhost:32777/zabbix-web-nginx-mysql:alpine-5.0-latest
+    image: localhost:32777/zabbix-web-nginx-mysql
     container_name: zabbix-web-nginx-mysql
     env_file:
       - main.env
@@ -75,6 +75,7 @@ services:
       - ./cron/logs:/var/log/cron
     restart: always
 
+  # Установка Grafana для последующей интеграции и визуализации данных Zabbix
   grafana:
     image: localhost:32777/grafana
     container_name: grafana
