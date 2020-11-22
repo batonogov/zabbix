@@ -5,3 +5,4 @@ secrets*
 update.*
 update-registry-*
 backup
+zabbix/

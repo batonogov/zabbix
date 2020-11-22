@@ -25,7 +25,7 @@ docker-compose up --build -d
 Обновитье локальный регистр
 
 ```
-update-registy.sh
+bash update-registry.sh
 ```
 
 Запустите Zabbix
