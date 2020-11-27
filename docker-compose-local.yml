@@ -55,7 +55,7 @@ services:
     # build: .
     # Для использования готового образа hub.docker.com/repository/docker/batonogov/zabbix-backup
     image: localhost:32777/cron
-    container_name: cron
+    container_name: zabbix-cron
     privileged: true
     links:
       - mysql-server
