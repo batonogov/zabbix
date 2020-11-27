@@ -6,3 +6,4 @@ update.*
 update-registry-*
 backup
 zabbix/
+.vscode
