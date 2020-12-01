@@ -70,7 +70,7 @@ admin
 
 1. Принудительное восстановление базы данных из последнего доступного дампа в backup/
 ```
-docker exec zabbix-backup bash restoredb.sh
+docker exec zabbix-cron bash restoredb.sh
 ```
 
 2. Остановка контейнеров
@@ -80,7 +80,7 @@ docker-compose down
 
 3. Принудительный дамп базы данных в backup/
 ```
-docker exec zabbix-backup bash /etc/cron.daily/backupdb.sh
+docker exec zabbix-cron bash /etc/cron.daily/backupdb.sh
 ```
 
 ### Поведение после установки:
